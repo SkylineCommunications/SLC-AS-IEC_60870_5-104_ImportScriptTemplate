@@ -49,27 +49,58 @@ namespace SLCASIEC608705104ImportScriptTemplate
 			}
 			catch (Exception e)
 			{
-				engine.ExitFail("Run|Something went wrong: " + e);
+				engine.ExitFail($"Run|Something went wrong: {e}");
 			}
 		}
 
 		private static void RunSafe(IEngine engine)
 		{
+			// Retrieve and validate script parameters.
 			ScriptParameters parameters = GetScriptParameters(engine);
 
+			// Retrieve metadata rows to be sent to the target element.
 			List<MetaDataRow> metaDataRows = GetMetadataRows(engine, parameters);
 
+			// Send metadata to the specified DataMiner element.
 			SendMetadataToElement(engine, parameters, metaDataRows);
 		}
 
+		/// <summary>
+		/// Retrieves a collection of metadata rows.
+		/// </summary>
+		/// <param name="engine">Link with SLAutomation process. Cannot be <see langword="null"/>.</param>
+		/// <param name="parameters">The parameters that define the script context and influence metadata retrieval. Cannot be <see langword="null"/>.</param>
+		/// <returns>A list of <see cref="MetaDataRow"/> objects representing the retrieved metadata rows.</returns>
+		/// <exception cref="NotImplementedException">Thrown if the method is not yet implemented.</exception>
 		private static List<MetaDataRow> GetMetadataRows(IEngine engine, ScriptParameters parameters)
 		{
 			// TODO: Implement metadata retrieval logic here.
 			throw new NotImplementedException();
 		}
 
+		/// <summary>
+		/// Sends metadata to the specified DataMiner element.
+		/// </summary>
+		/// <remarks>This method sends metadata to a DataMiner element by creating an import request and invoking the
+		/// appropriate InterApp call. If the operation succeeds, the engine exits with a success message. Otherwise,
+		/// it exits with a failure message containing the reason for the failure.</remarks>
+		/// <param name="engine">Link with SLAutomation process. Cannot be <see langword="null"/>.</param>
+		/// <param name="parameters">The parameters containing the request details, including the target element name and request identifier. Cannot be <see langword="null"/>.</param>
+		/// <param name="metaDataRows">A list of metadata rows to be sent to the target element. This list must not be null. This list must not be <see langword="null"/>.</param>
+		/// <exception cref="ArgumentNullException">Thrown if <paramref name="parameters"/> or <paramref name="metaDataRows"/> is <see langword="null"/>.</exception>
+		/// <exception cref="Exception">Thrown if the import operation fails due to an error in the InterApp call.</exception>
 		private static void SendMetadataToElement(IEngine engine, ScriptParameters parameters, List<MetaDataRow> metaDataRows)
 		{
+			if (parameters == null)
+			{
+				throw new ArgumentNullException("parameters");
+			}
+
+			if (metaDataRows == null)
+			{
+				throw new ArgumentNullException("metaDataRows");
+			}
+
 			var interAppCalls = new Iec608705104InterAppCalls(engine.GetUserConnection(), parameters.ElementName);
 
 			var importRequest = new ImportMetaDataRequest
@@ -90,8 +121,24 @@ namespace SLCASIEC608705104ImportScriptTemplate
 			}
 		}
 
+		/// <summary>
+		/// Retrieves and validates script parameters.
+		/// </summary>
+		/// <remarks>This method retrieves script parameters, validates the associated element,
+		/// and ensures that the element is active and running. If the element is not found or is inactive, the
+		/// method terminates the operation with a failure message.</remarks>
+		/// <param name="engine">Link with SLAutomation process. Cannot be <see langword="null"/>.</param>
+		/// <returns>A <see cref="ScriptParameters"/> object containing the retrieved parameters, including the element name, request
+		/// GUID, device, username, and password.</returns>
+		/// <exception cref="ArgumentNullException">Thrown if <paramref name="engine"/> is <see langword="null"/>.</exception>
+		/// <exception cref="Exception">Thrown if the target element is not found or is inactive.</exception>
 		private static ScriptParameters GetScriptParameters(IEngine engine)
 		{
+			if (engine == null)
+			{
+				throw new ArgumentNullException("engine");
+			}
+
 			var parameters = new ScriptParameters
 			{
 				ElementName = engine.GetScriptParam("ImportElementName").Value,
