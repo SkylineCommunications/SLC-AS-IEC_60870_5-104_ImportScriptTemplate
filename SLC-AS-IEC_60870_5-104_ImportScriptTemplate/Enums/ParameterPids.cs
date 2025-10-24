@@ -4,6 +4,6 @@
 	{
 		Device = 51,
 		Username = 55,
-		Password = 56,
+		Password = 70,
 	}
 }
