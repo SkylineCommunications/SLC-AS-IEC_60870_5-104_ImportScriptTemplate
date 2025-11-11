@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLC-AS-IEC_60870_5-104_ImportScriptTemplate", "SLC-AS-IEC_60870_5-104_ImportScriptTemplate\SLC-AS-IEC_60870_5-104_ImportScriptTemplate.csproj", "{FC1DF770-7708-4A4E-9B6B-360E06E68B2A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Internal", "Internal", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code Analysis", "Code Analysis", "{3EDAE961-205D-4DCC-BE52-33540F7FA5FD}"
+	ProjectSection(SolutionItems) = preProject
+		Internal\Code Analysis\qaction-debug.ruleset = Internal\Code Analysis\qaction-debug.ruleset
+		Internal\Code Analysis\qaction-release.ruleset = Internal\Code Analysis\qaction-release.ruleset
+		Internal\Code Analysis\stylecop.json = Internal\Code Analysis\stylecop.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC1DF770-7708-4A4E-9B6B-360E06E68B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC1DF770-7708-4A4E-9B6B-360E06E68B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC1DF770-7708-4A4E-9B6B-360E06E68B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC1DF770-7708-4A4E-9B6B-360E06E68B2A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3EDAE961-205D-4DCC-BE52-33540F7FA5FD} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {189B0BD3-1F81-4D03-B402-CA697939A3E0}
+	EndGlobalSection
+EndGlobal
