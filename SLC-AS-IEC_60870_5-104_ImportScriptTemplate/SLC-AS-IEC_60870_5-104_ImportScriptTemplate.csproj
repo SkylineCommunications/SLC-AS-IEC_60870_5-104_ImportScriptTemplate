@@ -13,6 +13,7 @@
 		<CatalogPublishKeyName>skyline:sdk:dataminertoken</CatalogPublishKeyName>
 	</PropertyGroup>
 	<ItemGroup>
+		<PackageReference Include="Skyline.DataMiner.ConnectorAPI.IEC_60870_5_104" Version="1.0.1" />
 		<PackageReference Include="Skyline.DataMiner.Dev.Automation" Version="10.3.0.25" />
 		<PackageReference Include="Skyline.DataMiner.Utils.SecureCoding.Analyzers" Version="2.2.1">
 			<PrivateAssets>all</PrivateAssets>
