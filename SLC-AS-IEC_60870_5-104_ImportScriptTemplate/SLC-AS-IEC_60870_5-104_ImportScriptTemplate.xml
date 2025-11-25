@@ -5,7 +5,7 @@
 	<Type>Automation</Type>
 	<Author>SDT</Author>
 	<CheckSets>FALSE</CheckSets>
-	<Folder></Folder>
+	<Folder>DataMiner Catalog/Automation</Folder>
 	<Interactivity>Auto</Interactivity>
 
 	<Protocols>
@@ -20,7 +20,6 @@
 	<Script>
 		<Exe id="1" type="csharp">
 			<Value><![CDATA[[Project:SLC-AS-IEC_60870_5-104_ImportScriptTemplate]]]></Value>
-			<!--<Param type="debug">true</Param>-->
 			<Message></Message>
 		</Exe>
 	</Script>

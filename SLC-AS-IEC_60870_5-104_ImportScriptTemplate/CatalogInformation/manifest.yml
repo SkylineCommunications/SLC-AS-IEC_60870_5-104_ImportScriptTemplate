@@ -34,7 +34,7 @@ id: 756cb46f-a5e7-43e0-90fe-a8e6095f069f
 #   Max length: 100 characters.
 #   Cannot contain newlines.
 #   Cannot contain leading or trailing whitespace characters.
-title: IEC 60870 5-104 Import Script Template
+title: IEC 60870 5-104 Import Script
 
 # [Optional]
 # General information about the Catalog item.
@@ -59,7 +59,8 @@ documentation_url:
 #   The name is required; max 256 characters.
 #   The email and URL are optional, and should be in valid email/URL formats.
 owners:
-  - name: 'Samuel Duarte <samuel.duarte@skyline.be>'
+  - name: 'Samuel Duarte'
+    email: 'samuel.duarte@skyline.be'
   
 # [Optional]
 # Tags that allow you to categorize your Catalog items.
@@ -69,3 +70,4 @@ owners:
 #   Cannot contain leading or trailing whitespace characters.
 tags:
   - dataminer
+  - Template
