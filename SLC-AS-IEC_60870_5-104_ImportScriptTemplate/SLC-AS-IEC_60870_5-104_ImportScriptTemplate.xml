@@ -15,6 +15,15 @@
 	</Memory>
 
 	<Parameters>
+		<ScriptParameter id="2" type="string" values="">
+			<Description>ImportElementName</Description>
+		</ScriptParameter>
+		<ScriptParameter id="3" type="string" values="">
+			<Description>RequestGuid</Description>
+		</ScriptParameter>
+		<ScriptParameter id="4" type="string" values="">
+			<Description>Device</Description>
+		</ScriptParameter>
 	</Parameters>
 
 	<Script>

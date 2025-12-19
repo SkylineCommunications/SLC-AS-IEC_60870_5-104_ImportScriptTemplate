@@ -3,7 +3,6 @@
 ## About
 
 This template provides a starting point for creating automation scripts that integrate with the [IEC 60870-5-104 connector](https://catalog.dataminer.services/details/003758df-a239-49a7-9679-73b6023a1d9e) using its Import Script feature.
-Access the full source code on [GitHub](https://github.com/SkylineCommunications/SLC-AS-IEC_60870_5-104_ImportScriptTemplate).
 
 ## Key Features
 
