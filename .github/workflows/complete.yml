@@ -2,7 +2,7 @@ name: Skyline Reusable Quality Workflow
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
+  # Triggers the workflow on push to any branch or when tags are created
   push:
     branches:
       - '**'
