@@ -43,9 +43,9 @@ Follow these steps to set it up:
 
 1. Add the SonarCloud project ID as a repository variable:
 
-   - Navigate to your repository's [Settings > Secrets and variables > Actions > Variables tab](https://github.com/SkylineCommunications/SLC-AS-IEC_60870_5-104_ImportScriptTemplate/settings/secrets/actions)
+   - Navigate to your repository's *Settings* > *Secrets and variables* > *Actions* > *Variables* tab
    - Click *New repository variable*
-   - Create a variable named `SONAR_NAME` with the value `SkylineCommunications_SLC-AS-IEC_60870_5-104_ImportScriptTemplate` (format: `[organization]_[repository-name]`)
+   - Create a variable named `SONAR_NAME` with the value in the format `[organization]_[repository-name]` (e.g., `SkylineCommunications_SLC-AS-IEC_60870_5-104_ImportScriptTemplate`)
 
 1. In GitHub, go to the *Actions* tab and check the workflow status.
 
