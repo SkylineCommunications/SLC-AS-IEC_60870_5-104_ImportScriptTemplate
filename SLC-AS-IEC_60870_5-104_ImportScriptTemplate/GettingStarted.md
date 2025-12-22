@@ -28,41 +28,37 @@ Follow the provided **Getting Started** guide in the new project for further ins
 
 This project was created with support for publishing to the DataMiner Catalog.
 You can publish your artifact either manually via the Visual Studio IDE or by setting up a CI/CD workflow.
-## Publishing to the Catalog with basic CI/CD workflow
+## Publishing to the Catalog with Complete CI/CD Workflow
 
-This project includes a basic GitHub workflow for Catalog publishing.
+This project includes a complete GitHub workflow with quality gates and code analysis for Catalog publishing.
 
 Follow these steps to set it up:
 
 1. Create a GitHub repository by going to *Git* > *Create Git Repository* in Visual Studio, selecting GitHub, and filling in the wizard before clicking *Create and Push*.
 
-1. In GitHub, go to the *Actions* tab.
+1. Create a SonarCloud project:
 
-1. Click the workflow run that failed (usually called *Add project files*).
+   - Visit [https://sonarcloud.io/projects/create](https://sonarcloud.io/projects/create)
+   - Create a new project and note its project ID
 
-1. Click the "build" step that failed and read the error.
+1. Add the SonarCloud project ID as a repository variable:
 
-   ``` text
-   Error: DATAMINER_TOKEN is not set. Release not possible!
-   Please create or re-use an admin.dataminer.services token by visiting: https://admin.dataminer.services/.
-   Navigate to the right organization, then go to Keys and create or find a key with permissions Register catalog items, Download catalog versions, and Read catalog items.
-   Copy the value of the token.
-   Then set a DATAMINER_TOKEN secret in your repository settings: **Dynamic Link**
-   ```
+   - Navigate to your repository's [Settings > Secrets and variables > Actions > Variables tab](https://github.com/SkylineCommunications/SLC-AS-IEC_60870_5-104_ImportScriptTemplate/settings/secrets/actions)
+   - Click *New repository variable*
+   - Create a variable named `SONAR_NAME` with the value `SkylineCommunications_SLC-AS-IEC_60870_5-104_ImportScriptTemplate` (format: `[organization]_[repository-name]`)
 
-   You can use the links from the actual error to better address the next couple of steps.
+1. In GitHub, go to the *Actions* tab and check the workflow status.
 
-1. Obtain an **organization key** from [admin.dataminer.services](https://admin.dataminer.services/) with the following scopes:
+1. If the workflow reports missing DATAMINER_TOKEN:
 
-   - *Register catalog items*
-   - *Read catalog items*
-   - *Download catalog versions*
+   - Obtain an **organization key** from [admin.dataminer.services](https://admin.dataminer.services/) with the following scopes:
+     - *Register catalog items*
+     - *Read catalog items*
+     - *Download catalog versions*
+   - Add the key as a secret in your GitHub repository by navigating to *Settings* > *Secrets and variables* > *Actions* and creating a secret named `DATAMINER_TOKEN`
+   - Re-run the workflow
 
-1. Add the key as a secret in your GitHub repository, by navigating to *Settings* > *Secrets and variables* > *Actions* and creating a secret named `DATAMINER_TOKEN`.
-
-1. Re-run the workflow.
-
-With this setup, any push with new content (including the initial creation) to the main/master branch will generate a new pre-release version, using the latest commit message as the version description.
+With this setup, any push to any branch will trigger the quality workflow with code analysis. Pushes to the main/master branch will generate a new pre-release version, using the latest commit message as the version description.
 
 ### Releasing a specific version
 
